@@ -3,7 +3,7 @@
 
 # Cấu trúc Database (Cập nhật mới nhất)
 
-Mọi người chú ý: Mình đã thêm các field mới và quy định kiểu dữ liệu như sau. Vui lòng dùng đúng tên biến này trong code.
+Chú ý: đã thêm các field mới và quy định kiểu dữ liệu như sau. dùng đúng tên biến này trong code.
 
 ## 1. Collection: `users`
 Dùng chung cho cả Tài xế và Khách hàng.

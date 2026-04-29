@@ -1,10 +1,28 @@
 # HƯỚNG DẪN CẤU TRÚC DỮ LIỆU (DATABASE)
 Đây là cấu trúc các bảng trên Firebase Firestore. Mng chú ý đặt đúng tên biến (fields) nhé!
 
-### 1. Collection: `users`
-- `uid`: String (ID từ Firebase Auth)
-- `name`: String
-- `role`: "PASSENGER" hoặc "DRIVER"
+# Cấu trúc Database (Cập nhật mới nhất)
+
+Mọi người chú ý: Mình đã thêm các field mới và quy định kiểu dữ liệu như sau. Vui lòng dùng đúng tên biến này trong code.
+
+## 1. Collection: `users`
+Dùng chung cho cả Tài xế và Khách hàng.
+
+| Field Name | Type | Description |
+| :--- | :--- | :--- |
+| `full name` | string | Tên đầy đủ |
+| `phone number` | string | Số điện thoại (để string để giữ số 0) |
+| `role` | string | `DRIVER` hoặc `PASSENGER` |
+| `rating` | number | Điểm đánh giá (mặc định 5.0) |
+| `created_at` | timestamp | Ngày tham gia hệ thống |
+| `online status` | boolean | Trạng thái hoạt động (cho Driver) | 
+
+### Field đặc thù cho DRIVER:
+- `model` (string): Loại xe (VD: VinFast VF5)
+- `license plate` (string): Biển số xe
+
+### Field đặc thù cho PASSENGER:
+- `emergency_contact` (string): SĐT người thân
 
 ### 2. Collection: `trips`
 - `client_id`: String

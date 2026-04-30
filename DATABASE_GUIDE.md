@@ -13,7 +13,7 @@ Dùng chung cho cả Tài xế và Khách hàng.
 | `full name` | string | Tên đầy đủ |
 | `phone number` | string | Số điện thoại (để string để giữ số 0) |
 | `role` | string | `DRIVER` hoặc `PASSENGER` |
-| `rating` | number | Điểm đánh giá (mặc định 5.0) |
+| `rating` | number | Điểm đánh giá trung bình. (Khởi tạo: 5.0, Range: 1.0 - 5.0)) |
 | `created_at` | timestamp | Ngày tham gia hệ thống |
 | `online status` | boolean | Trạng thái hoạt động (cho Driver) | 
 

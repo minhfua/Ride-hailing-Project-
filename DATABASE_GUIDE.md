@@ -24,24 +24,29 @@ Dùng chung cho cả Tài xế và Khách hàng.
 ### Field đặc thù cho PASSENGER:
 - `emergency_contact` (string): SĐT người thân
 
-### 2. Collection: `trips`
-- `client_id`: String
-- `driver_id`: String (để trống khi chưa có người nhận)
-- `pickup_location`: GeoPoint (lat, lng)
-- `destination_location`: GeoPoint (lat, lng)
-- `price`: Number
-- `status`: "WAITING", "ACCEPTED", "ON_THE_WAY", "COMPLETED"
+## 2. Collection: `trips`
+Đây là nơi lưu trữ thông tin của từng cuốc xe. 
 
-### 3. Quy trình trạng thái (Status Flow)
-Mọi người chú ý cập nhật `status` theo đúng luồng này:
-1. `WAITING`: Khách vừa bấm đặt, đang tìm tài xế.
-2. `ACCEPTED`: Tài xế đã bấm nhận đơn.
-3. `PICKING_UP`: Tài xế đang trên đường đến chỗ khách.
-4. `ON_THE_WAY`: Khách đã lên xe, đang di chuyển đến điểm đến.
-5. `COMPLETED`: Đã trả khách và thanh toán xong.
-6. `CANCELLED`: Chuyến đi bị hủy.
+| Field Name | Type | Description |
+| :--- | :--- | :--- |
+| `passenger_id` | string | ID của khách hàng (lấy từ Document ID của collection `users`) |
+| `driver_id` | string | ID của tài xế (để trống hoặc "waiting" nếu chưa có người nhận) |
+| `pickup_point` | geopoint | Tọa độ điểm đón khách (Vĩ độ, Kinh độ) |
+| `destination_point`| geopoint | Tọa độ điểm đến (Vĩ độ, Kinh độ) |
+| `price` | number | Tổng tiền chuyến xe (đơn vị: VNĐ) |
+| `status` | string | Trạng thái chuyến xe (Xem danh sách các trạng thái bên dưới) |
+| `created_at` | timestamp | Thời điểm khách hàng nhấn nút đặt xe |
 
-### 4. Lưu ý về kiểu dữ liệu
+### Các trạng thái hợp lệ của `status`:
+Mọi người chú ý dùng đúng các từ khóa này để xử lý logic:
+- `WAITING`: Đang tìm tài xế.
+- `ACCEPTED`: Tài xế đã nhận chuyến.
+- `PICKING_UP`: Tài xế đang đến điểm đón.
+- `ON_THE_WAY`: Đang chở khách đến điểm đến.
+- `COMPLETED`: Chuyến xe đã hoàn thành.
+- `CANCELLED`: Chuyến xe đã bị hủy.
+
+### 3. Lưu ý về kiểu dữ liệu
 - Tọa độ: Sử dụng kiểu `GeoPoint` trong Firestore.
 - Giá tiền: Sử dụng kiểu `Number` (đơn vị: VNĐ).
 - Thời gian: Sử dụng kiểu `Timestamp`.

@@ -14,7 +14,7 @@ Dùng chung cho cả Tài xế và Khách hàng.
 | `phone number` | string | Số điện thoại (để string để giữ số 0) |
 | `role` | string | `DRIVER` hoặc `PASSENGER` |
 | `rating` | number | Điểm đánh giá trung bình. (Khởi tạo: 5.0, Range: 1.0 - 5.0)) |
-| `created_at` | timestamp | Ngày tham gia hệ thống |
+| `created at` | timestamp | Ngày tham gia hệ thống |
 | `online status` | boolean | Trạng thái hoạt động (cho Driver) | 
 
 ### Field đặc thù cho DRIVER:
@@ -22,7 +22,7 @@ Dùng chung cho cả Tài xế và Khách hàng.
 - `license plate` (string): Biển số xe
 
 ### Field đặc thù cho PASSENGER:
-- `emergency_contact` (string): SĐT người thân
+- `emergency contact` (string): SĐT người thân
 
 ## 2. Collection: `trips`
 Đây là nơi lưu trữ thông tin của từng cuốc xe. 
